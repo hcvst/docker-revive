@@ -13,11 +13,11 @@ RUN \
  && \
  rm -rf /var/lib/apt/lists/* && \
  rm -rf /app
-ADD http://download.revive-adserver.com/revive-adserver-3.1.0.zip /app/
+ADD http://download.revive-adserver.com/revive-adserver-3.2.4.zip /app/
 RUN \
  cd /app && \
- unzip revive-adserver-3.1.0.zip && \
- mv ./revive-adserver-3.1.0/* /var/www/html/ && \
+ unzip revive-adserver-3.2.4.zip && \
+ mv ./revive-adserver-3.2.4/* /var/www/html/ && \
  rm -f /var/www/html/index.html && \
  chown -R www-data:www-data /var/www/html
 CMD /usr/sbin/apache2ctl -D FOREGROUND
