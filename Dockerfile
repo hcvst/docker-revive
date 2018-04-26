@@ -1,23 +1,20 @@
-FROM ubuntu:trusty
+FROM ubuntu:16.04
 RUN \
  apt-get update && \
  apt-get install -yq \
   apache2 \
-  libapache2-mod-php5 \
-  mysql-server \
-  php5-mysql \
-  pwgen \
-  php-apc \
-  php5-mcrypt \
+  libapache2-mod-php \
+  php-mysql \
+  php-xml \
   unzip \
  && \
  rm -rf /var/lib/apt/lists/* && \
  rm -rf /app
-ADD http://download.revive-adserver.com/revive-adserver-3.2.4.zip /app/
+ADD https://download.revive-adserver.com/revive-adserver-4.1.3.zip /app/revive-adserver.zip
 RUN \
  cd /app && \
- unzip revive-adserver-3.2.4.zip && \
- mv ./revive-adserver-3.2.4/* /var/www/html/ && \
+ unzip revive-adserver.zip && \
+ mv ./revive-adserver-*/* /var/www/html/ && \
  rm -f /var/www/html/index.html && \
  chown -R www-data:www-data /var/www/html
 CMD /usr/sbin/apache2ctl -D FOREGROUND
