@@ -10,7 +10,7 @@ RUN \
  && \
  rm -rf /var/lib/apt/lists/* && \
  rm -rf /app
-ADD https://download.revive-adserver.com/revive-adserver-4.1.3.zip /app/revive-adserver.zip
+ADD https://download.revive-adserver.com/revive-adserver-4.1.0.zip /app/revive-adserver.zip
 RUN \
  cd /app && \
  unzip revive-adserver.zip && \
